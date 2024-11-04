@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+/*const mongoose = require('mongoose');
 
 const invoiceSchema = new mongoose.Schema({
   customer_id: {
@@ -28,4 +28,7 @@ const invoiceSchema = new mongoose.Schema({
     default: 'Pending',
   },
 });
-module.exports = mongoose.model('Invoice', invoiceSchema);
+//module.exports = mongoose.model('Invoice', invoiceSchema);
+const Invoice = model('Invoice', invoiceSchema);
+
+export { Invoice };

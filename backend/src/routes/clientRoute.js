@@ -1,11 +1,12 @@
 // src/routes/clientRoute.js
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const clientController = require('../controllers/clientController');
+
+import {createClientController } from '../controllers/clientController.js';
 
 // Ruta para agregar un nuevo cliente
-router.post('/clientes', clientController.agregarCliente);
+router.post('/clientes', createClientController);
 
-router.get('/clientes', clientController.obtenerClientes);
+//router.get('/clientes', clientController.obtenerClientes);
 
-module.exports = router;
+export default router;

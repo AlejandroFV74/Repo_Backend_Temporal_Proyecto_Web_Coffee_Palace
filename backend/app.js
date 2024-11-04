@@ -1,14 +1,15 @@
-const express = require('express');
-const morgan = require('morgan');
+import express from 'express';
+import morgan from 'morgan';
+//import orderRoutes from './src/routes/orderRoute.js';
+import clientRoute from './src/routes/clientRoute.js';
+
 const app = express();
 
 app.use(express.json());       
 app.use(morgan('dev'));
 
-const orderRoutes = require('./src/routes/orderRoute'); 
-app.use('/orders', orderRoutes);
-const clientRoute = require('./src/routes/clientRoute')
+//app.use('/orders', orderRoutes);
 app.use('/', clientRoute);
 
 
-module.exports = app;
+export default app;
