@@ -2,11 +2,14 @@
 import express from 'express';
 const router = express.Router();
 
-import {createClientController } from '../controllers/clientController.js';
+import {
+    createClientController,
+    getClientsController 
+} from '../controllers/clientController.js';
 
 // Ruta para agregar un nuevo cliente
 router.post('/clientes', createClientController);
-
-//router.get('/clientes', clientController.obtenerClientes);
+// Ruta para obtenerlos
+router.get('/clientes', getClientsController);
 
 export default router;

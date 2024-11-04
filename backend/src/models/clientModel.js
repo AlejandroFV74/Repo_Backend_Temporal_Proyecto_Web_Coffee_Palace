@@ -1,7 +1,7 @@
 
 import { Schema, model } from 'mongoose';
 
-const clienteSchema = new Schema({
+const clientSchema = new Schema({
   nombre: {
     type: String,
     required: true,
@@ -50,6 +50,6 @@ const clienteSchema = new Schema({
 // Crea el modelo
 //const Cliente = mongoose.model('Cliente', clienteSchema);
 
-const Client = model('Cliente', clienteSchema);
+const Client = model('Cliente', clientSchema);
 
 export { Client };

@@ -1,6 +1,7 @@
 
-import { saveClient } from '../services/clientService.js';
+import { saveClient, getClients } from '../services/clientService.js';
 import createError from 'http-errors';
+import { ClientErrorCodes } from '../utils/errors/ServiceError.js';
 //const Cliente = require('../models/clientModel');
 
 /*exports.agregarCliente = async (req, res) => {
@@ -27,6 +28,25 @@ export const createClientController = async (req, res, next) => {
       }
   }
 };
+
+export const getClientsController = async (req, res, next) => {
+  try {
+      const clients = await getClients();
+      res.status(200).json({ data: clients });
+  } catch (e) {
+    if (e instanceof ServiceError) {
+      switch(e.code){
+          case ClientErrorCodes.CLIENT_FETCH_FAILED:
+              next(createError(500, 'Error al obtener los clients'));
+              break;
+          default:
+              next(e);
+      }
+    }else{
+      next(e);
+    }
+  }
+}
 
 export const obtenerClientes = async (req, res) => {
     try {

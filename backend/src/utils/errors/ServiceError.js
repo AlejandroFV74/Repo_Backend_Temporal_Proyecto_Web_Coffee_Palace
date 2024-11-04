@@ -5,4 +5,9 @@ export const ClientErrorCodes = {
     CLIENT_SEARCH_FAILED: 1004,
 };
 
-export default ClientErrorCodes;
+export class ServiceError extends Error {
+    constructor(message, code) {
+        super(message);
+        this.code = code;
+    }
+}
